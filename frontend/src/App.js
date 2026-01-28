@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "@/App.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Menu, X, MapPin, Phone, Mail, Instagram, Clock, ChevronDown } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, Instagram, Clock, ChevronDown, Star, Quote } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +47,34 @@ const galleryImages = [
   { src: IMAGES.dish1, alt: "Mediterranean Bowl" },
   { src: IMAGES.dish3, alt: "Latte Art" },
   { src: IMAGES.dish5, alt: "Food Spread" },
+];
+
+// Customer Testimonials
+const testimonials = [
+  {
+    name: "Priya Sharma",
+    review: "Absolutely magical place! Felt like I stepped into a cartoon. The food was as amazing as the ambiance. Perfect for Instagram photos!",
+    rating: 5,
+    date: "2 weeks ago"
+  },
+  {
+    name: "Rahul Mehta",
+    review: "Best cafe experience in Pune! The 2D concept is mind-blowing. The Mediterranean Bowl is a must-try. Will definitely come back!",
+    rating: 5,
+    date: "1 month ago"
+  },
+  {
+    name: "Ananya Desai",
+    review: "Such a unique concept! My friends and I spent hours here taking photos. The latte art was beautiful and delicious. Highly recommend!",
+    rating: 5,
+    date: "3 weeks ago"
+  },
+  {
+    name: "Vikram Joshi",
+    review: "A hidden gem in Koregaon Park. The illusion of being inside a sketch is surreal. Great coffee, cozy vibes, and friendly staff!",
+    rating: 4,
+    date: "1 week ago"
+  },
 ];
 
 // Navigation Component
