@@ -607,7 +607,7 @@ const ContactSection = () => {
   }, []);
   
   return (
-    <section id="contact" className="section-padding" ref={sectionRef} data-testid="contact-section">
+    <section id="contact" className="section-padding bg-[#F5F2EB]" ref={sectionRef} data-testid="contact-section">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <span className="font-accent text-xl text-[#D4A373] uppercase tracking-widest">Find Us</span>
@@ -647,7 +647,9 @@ const ContactSection = () => {
                   <Phone size={24} strokeWidth={1.5} className="flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-accent text-lg font-semibold">Phone</h4>
-                    <p className="font-body text-gray-600">+91 98765 43210</p>
+                    <a href="tel:07757942396" className="font-body text-gray-600 hover:text-[#D4A373] transition-colors">
+                      07757942396
+                    </a>
                   </div>
                 </div>
                 
@@ -675,20 +677,29 @@ const ContactSection = () => {
           </div>
           
           <div className="contact-map">
-            <div className="map-placeholder font-heading text-2xl text-gray-400">
-              <div className="text-center">
-                <MapPin size={48} strokeWidth={1} className="mx-auto mb-4" />
-                <p>Koregaon Park, Pune</p>
-                <a 
-                  href="https://maps.google.com/?q=Koregaon+Park+Pune" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="sketch-btn mt-4 inline-block px-6 py-2 text-base"
-                  data-testid="directions-btn"
-                >
-                  Get Directions
-                </a>
-              </div>
+            <div className="border-3 border-black overflow-hidden" style={{ border: '3px solid black' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.8!2d73.8931!3d18.5362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1000a000001%3A0x1!2sKoregaon%20Park%2C%20Pune!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The Camden Lane Location"
+                data-testid="google-map"
+              ></iframe>
+            </div>
+            <div className="mt-4 text-center">
+              <a 
+                href="https://maps.app.goo.gl/F81nFauK7NL7JmqW6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="sketch-btn inline-block px-6 py-3 text-lg"
+                data-testid="directions-btn"
+              >
+                Get Directions
+              </a>
             </div>
           </div>
         </div>
