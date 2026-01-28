@@ -762,6 +762,7 @@ function App() {
       <AboutSection />
       <MenuSection />
       <GallerySection />
+      <TestimonialsSection />
       <ContactSection />
       <Footer />
     </div>
