@@ -479,6 +479,95 @@ const GallerySection = () => {
   );
 };
 
+// Testimonials Section
+const TestimonialsSection = () => {
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".testimonial-card",
+        { y: 60, opacity: 0, rotation: -2 },
+        {
+          y: 0,
+          opacity: 1,
+          rotation: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.2)",
+          scrollTrigger: {
+            trigger: ".testimonials-grid",
+            start: "top 70%",
+          }
+        }
+      );
+    }, sectionRef);
+    
+    return () => ctx.revert();
+  }, []);
+  
+  return (
+    <section id="testimonials" className="section-padding" ref={sectionRef} data-testid="testimonials-section">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="text-center mb-12">
+          <span className="font-accent text-xl text-[#D4A373] uppercase tracking-widest">Reviews</span>
+          <h2 className="font-heading text-5xl md:text-7xl font-bold mt-2" data-testid="testimonials-title">
+            What People Say
+          </h2>
+          <p className="font-body text-lg text-gray-600 mt-4">
+            Don't just take our word for it
+          </p>
+        </div>
+        
+        <div className="testimonials-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index} 
+              className="testimonial-card sketch-card relative"
+              data-testid={`testimonial-${index}`}
+            >
+              <Quote size={32} strokeWidth={1} className="text-[#D4A373] mb-4" />
+              
+              <p className="font-body text-gray-700 mb-4 leading-relaxed">
+                "{testimonial.review}"
+              </p>
+              
+              <div className="flex items-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star 
+                    key={i} 
+                    size={16} 
+                    fill={i < testimonial.rating ? "#D4A373" : "none"}
+                    stroke={i < testimonial.rating ? "#D4A373" : "#ccc"}
+                    strokeWidth={1.5}
+                  />
+                ))}
+              </div>
+              
+              <div className="border-t-2 border-black pt-4 mt-4">
+                <p className="font-accent text-lg font-semibold">{testimonial.name}</p>
+                <p className="font-body text-sm text-gray-500">{testimonial.date}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-10">
+          <a 
+            href="https://maps.app.goo.gl/F81nFauK7NL7JmqW6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sketch-btn px-8 py-3 text-lg inline-flex items-center gap-2"
+            data-testid="google-reviews-btn"
+          >
+            <Star size={18} strokeWidth={1.5} />
+            See All Reviews on Google
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Contact Section
 const ContactSection = () => {
   const sectionRef = useRef(null);
