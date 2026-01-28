@@ -37,7 +37,10 @@ Create a website similar to Grandmama's Cafe (grandmamascafe.com) but for "The C
 - ✅ About section with story content, interior image, and stats
 - ✅ Menu section with 3 signature dishes (Mediterranean Bowl, Signature Latte Art, The Camden Feast)
 - ✅ Gallery section with 5 images
-- ✅ Contact section with location, hours, phone, email
+- ✅ **NEW** Testimonials section with 4 customer reviews and star ratings
+- ✅ Contact section with real phone (07757942396), location, hours, email
+- ✅ **NEW** Embedded Google Maps for Koregaon Park location
+- ✅ **NEW** Direct link to Google Maps (https://maps.app.goo.gl/F81nFauK7NL7JmqW6)
 - ✅ Footer with branding and navigation
 - ✅ GSAP ScrollTrigger animations throughout
 - ✅ Mobile responsive design with hamburger menu
