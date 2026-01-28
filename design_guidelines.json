@@ -1,0 +1,163 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "The Camden Lane",
+      "aesthetic": "2D Sketch / Comic Book Cafe",
+      "vibe": "Whimsical, Artistic, Optical Illusion, Instagrammable",
+      "theme_mode": "light",
+      "principles": [
+        "Reality vs. Sketch: Real food pops against black/white backgrounds",
+        "Imperfection is Perfect: Wobbly lines, hand-drawn elements",
+        "Motion as Ink: Animations should feel like they are being drawn live",
+        "High Contrast: Stark black lines on warm cream paper"
+      ]
+    },
+    "colors": {
+      "palette": {
+        "background": {
+          "primary": "#FDFBF7",
+          "secondary": "#F5F2EB",
+          "paper": "#FFFFFF"
+        },
+        "foreground": {
+          "primary": "#1A1A1A",
+          "secondary": "#4A4A4A",
+          "sketch_line": "#000000"
+        },
+        "accent": {
+          "highlight": "#D4A373",
+          "alert": "#E76F51",
+          "success": "#2A9D8F"
+        }
+      },
+      "usage_rules": "Backgrounds must be 'paper' colors. All borders and structural lines must be 'sketch_line' (pure black). Use accents sparingly for buttons or food price tags."
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Amatic SC, cursive",
+        "body": "Quicksand, sans-serif",
+        "accent": "Patrick Hand, cursive"
+      },
+      "scale": {
+        "h1": "text-6xl md:text-8xl font-bold tracking-wider",
+        "h2": "text-4xl md:text-6xl font-bold",
+        "h3": "text-2xl md:text-4xl font-semibold",
+        "body": "text-lg md:text-xl leading-relaxed"
+      },
+      "instructions": "Import 'Amatic SC' (weights 400, 700), 'Patrick Hand', and 'Quicksand' from Google Fonts. Use Amatic SC for all major titles to mimic handwriting."
+    },
+    "components": {
+      "buttons": {
+        "style": "neobrutalist",
+        "classes": "bg-white text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all rounded-md font-['Patrick_Hand'] text-xl px-8 py-3 uppercase tracking-widest"
+      },
+      "cards": {
+        "style": "sketch_panel",
+        "classes": "bg-white border-2 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,0.2)] transition-shadow duration-300"
+      },
+      "inputs": {
+        "style": "hand_drawn",
+        "classes": "bg-transparent border-b-2 border-black focus:outline-none focus:border-accent-highlight px-2 py-4 font-['Quicksand'] text-lg placeholder:text-gray-400"
+      }
+    },
+    "layout": {
+      "grid_system": "asymmetric_comic_strip",
+      "spacing": "generous",
+      "container": "max-w-7xl mx-auto px-4 md:px-8",
+      "rules": "Avoid perfect symmetry. Offset images and text blocks to look like a scrapbook or comic strip layout."
+    },
+    "motion": {
+      "library": "GSAP",
+      "effects": [
+        {
+          "name": "draw_lines",
+          "description": "Use GSAP to animate SVG strokes of borders/dividers as if being drawn.",
+          "trigger": "scroll"
+        },
+        {
+          "name": "paper_slide",
+          "description": "Elements slide in from bottom with a slight rotation (skew) to feel like paper landing on a desk.",
+          "trigger": "scroll"
+        },
+        {
+          "name": "parallax_sketch",
+          "description": "Background sketch layers move slower than foreground food images.",
+          "trigger": "scroll"
+        }
+      ]
+    }
+  },
+  "assets": {
+    "images": {
+      "hero": {
+        "url": "https://images.unsplash.com/photo-1566095793571-f4aba992cc5e",
+        "alt": "2D Cafe Interior Sketch Style",
+        "description": "Clean, white interior with strong lines. Use as the main backdrop."
+      },
+      "menu": [
+        {
+          "name": "Cafe Latte Art",
+          "url": "https://images.unsplash.com/photo-1749937393049-d0a0dbaed903",
+          "category": "Coffee"
+        },
+        {
+          "name": "Mediterranean Bowl",
+          "url": "https://images.unsplash.com/photo-1633984927681-52b4e54f40ca",
+          "category": "Food"
+        },
+        {
+          "name": "Artisan Pizza",
+          "url": "https://images.unsplash.com/photo-1735233024751-37dd47c76591",
+          "category": "Food"
+        }
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1731845651024-d3645b94244c",
+        "https://images.unsplash.com/photo-1760611656116-dee190780f7c",
+        "https://images.unsplash.com/photo-1762657440624-d0b5cfae5bac",
+        "https://images.unsplash.com/photo-1670843838196-0c1c15e85d5e"
+      ]
+    },
+    "icons": "Use 'Lucide React' with thin strokes (stroke-width={1.5}) to match the sketch aesthetic."
+  },
+  "implementation_steps": [
+    {
+      "step": 1,
+      "action": "Setup Tailwind Config",
+      "details": "Extend theme with 'paper' colors and 'Amatic SC'/'Patrick Hand' fonts. Add custom shadow utilities for the neobrutalist look."
+    },
+    {
+      "step": 2,
+      "action": "Global CSS",
+      "details": "Import Google Fonts in index.css. Set body background to #FDFBF7. Add a global 'noise' texture overlay (optional) for paper feel."
+    },
+    {
+      "step": 3,
+      "action": "Component Library",
+      "details": "Customize Shadcn components (Button, Card, Input) to remove default rounded/gray styles and apply the 'Sketch' design system."
+    },
+    {
+      "step": 4,
+      "action": "Hero Section",
+      "details": "Build a full-screen hero with the interior image. Use GSAP to 'draw' the logo or slogan on load."
+    },
+    {
+      "step": 5,
+      "action": "Menu & Gallery",
+      "details": "Create a horizontal scroll or masonry grid. Images should have black borders. Hover effects should be 'jerky' or 'snap' to fit the 2D theme."
+    }
+  ],
+  "universal_guidelines": {
+    "do_not": [
+      "Do NOT use gradients.",
+      "Do NOT use default blue/primary colors.",
+      "Do NOT use rounded-full buttons (unless they look hand-drawn).",
+      "Do NOT use 'Inter' font."
+    ],
+    "must_do": [
+      "MUST use high contrast black borders.",
+      "MUST use the provided image URLs.",
+      "MUST implement GSAP ScrollTrigger for at least 2 sections."
+    ]
+  }
+}
