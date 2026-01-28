@@ -92,6 +92,13 @@ const Navigation = ({ isOpen, setIsOpen }) => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="mobile-menu md:hidden" data-testid="mobile-menu">
+          <button
+            className="absolute top-6 right-6 p-2 border-2 border-black bg-white"
+            onClick={() => setIsOpen(false)}
+            data-testid="mobile-menu-close"
+          >
+            <X size={28} />
+          </button>
           {navLinks.map((link) => (
             <a
               key={link}
