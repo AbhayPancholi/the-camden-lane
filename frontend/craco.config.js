@@ -47,6 +47,11 @@ const webpackConfig = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig) => {
+      // Remove ESLintPlugin to avoid "defaultMeta" / ajv v8 incompatibility with react-scripts
+      const ESLintPlugin = require("eslint-webpack-plugin");
+      webpackConfig.plugins = webpackConfig.plugins.filter(
+        (p) => !(p instanceof ESLintPlugin)
+      );
 
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {
